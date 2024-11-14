@@ -39,8 +39,8 @@ if ($requestUri === '/latest') {
 
 } elseif ($requestUri === '/map') {
     // redirect to map
-    $hostname = $config->get('APP_HOST');
-    header("Location: https://satisfactory-calculator.com/en/interactive-map?url=https://$hostname/latest");
+    $appUrl = $config->get('APP_URL');
+    header("Location: https://satisfactory-calculator.com/en/interactive-map?url=$appUrl/latest");
 
     abort(302);
 

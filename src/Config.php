@@ -8,8 +8,9 @@ class Config
 {
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__.'/..');
-        $dotenv->load();
+        if (empty($_ENV)) {
+            Dotenv::createImmutable(__DIR__.'/..')->load();
+        }
     }
 
     public function get(string $var): mixed

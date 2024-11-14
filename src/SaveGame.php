@@ -4,14 +4,17 @@ namespace Tii\SatisfactorySaveGame;
 
 class SaveGame
 {
-    protected const SAVE_GAME_FOLDER = '/home/steam/.config/Epic/FactoryGame/Saved/SaveGames/server/';
+    protected static function saveGameDir(): string
+    {
+        return (new Config)->get('SATISFACTORY_SAVEGAME_DIR');
+    }
 
     /**
      * @return array<SaveGame>
      */
     public static function list(): array
     {
-        $files = glob(static::SAVE_GAME_FOLDER.'*');
+        $files = glob(static::saveGameDir().'*');
 
         $files = array_filter($files, fn ($item) => is_file($item));
 
@@ -29,11 +32,11 @@ class SaveGame
 
     public static function get(string $filename): ?static
     {
-        if (! is_file(static::SAVE_GAME_FOLDER.$filename)) {
+        if (! is_file(static::saveGameDir().$filename)) {
             return null;
         }
 
-        return new static(static::SAVE_GAME_FOLDER.$filename);
+        return new static(static::saveGameDir().$filename);
     }
 
     public function __construct(
