@@ -1,0 +1,23 @@
+{
+    "name": "tii/satisfactory-save-game",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tii\\SatisfactorySaveGame\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tii",
+            "email": "mail@tii.one"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "laravel/pint": "^0.1.2"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
