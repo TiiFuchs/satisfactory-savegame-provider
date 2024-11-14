@@ -21,5 +21,5 @@ The following endpoints are available:
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](/LICENSE.md)
 
