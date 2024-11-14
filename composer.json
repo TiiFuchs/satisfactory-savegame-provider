@@ -15,7 +15,8 @@
     ],
     "minimum-stability": "stable",
     "require-dev": {
-        "laravel/pint": "^0.1.2"
+        "laravel/pint": "^0.1.2",
+        "deployer/deployer": "^7.5"
     },
     "require": {
         "php": "^8.2",

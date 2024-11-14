@@ -4,21 +4,12 @@ namespace Tii\SatisfactorySavegameProvider;
 
 class SaveGame
 {
-    protected static function saveGameDir(): string
-    {
-        return (new Config())->get('SATISFACTORY_SAVEGAME_DIR');
-    }
+    public readonly int $modified_at;
 
-    /**
-     * @return array<SaveGame>
-     */
-    public static function list(): array
-    {
-        $files = glob(static::saveGameDir().'*');
-
-        $files = array_filter($files, fn ($item) => is_file($item));
-
-        return array_map(fn ($file) => new static($file), $files);
+    public function __construct(
+        protected string $filename,
+    ) {
+        $this->modified_at = filemtime($this->filename);
     }
 
     public static function latest(): ?static
@@ -30,22 +21,31 @@ class SaveGame
         );
     }
 
+    /**
+     * @return array<SaveGame>
+     */
+    public static function list(): array
+    {
+        $files = glob(static::saveGameDir().'/*');
+
+        $files = array_filter($files, fn ($item) => is_file($item));
+
+        return array_map(fn ($file) => new static($file), $files);
+    }
+
+    protected static function saveGameDir(): string
+    {
+        return rtrim((new Config())->get('SATISFACTORY_SAVEGAME_DIR'), '/');
+    }
+
     public static function get(string $filename): ?static
     {
-        if (! is_file(static::saveGameDir().$filename)) {
+        if (! is_file(static::saveGameDir().'/'.$filename)) {
             return null;
         }
 
-        return new static(static::saveGameDir().$filename);
+        return new static(static::saveGameDir().'/'.$filename);
     }
-
-    public function __construct(
-        protected string $filename,
-    ) {
-        $this->modified_at = filemtime($this->filename);
-    }
-
-    public readonly int $modified_at;
 
     public function download(): never
     {
