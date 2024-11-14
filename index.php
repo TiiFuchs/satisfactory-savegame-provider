@@ -1,7 +1,7 @@
 <?php
 
-use Tii\SatisfactorySaveGame\Config;
-use Tii\SatisfactorySaveGame\SaveGame;
+use Tii\SatisfactorySavegameProvider\Config;
+use Tii\SatisfactorySavegameProvider\SaveGame;
 
 require_once 'vendor/autoload.php';
 

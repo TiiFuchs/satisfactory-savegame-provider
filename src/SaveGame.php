@@ -1,6 +1,6 @@
 <?php
 
-namespace Tii\SatisfactorySaveGame;
+namespace Tii\SatisfactorySavegameProvider;
 
 class SaveGame
 {

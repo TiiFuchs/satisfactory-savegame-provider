@@ -4,7 +4,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Tii\\SatisfactorySaveGame\\": "src/"
+            "Tii\\SatisfactorySavegameProvider\\": "src/"
         }
     },
     "authors": [
@@ -18,6 +18,7 @@
         "laravel/pint": "^0.1.2"
     },
     "require": {
+        "php": "^8.2",
         "vlucas/phpdotenv": "^5.6"
     }
 }
