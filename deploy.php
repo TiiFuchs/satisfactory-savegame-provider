@@ -45,5 +45,5 @@ desc('Run Docker Container Locally');
 task('dev', [
     'build',
     'stop',
-    'start'
+    'start',
 ]);
