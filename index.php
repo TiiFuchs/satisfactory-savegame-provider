@@ -5,7 +5,7 @@ use Tii\SatisfactorySavegameProvider\SaveGame;
 
 require_once 'vendor/autoload.php';
 
-$config = new Config;
+$config = new Config();
 
 function abort(int $statusCode = 404): never
 {
@@ -24,7 +24,6 @@ if ($requestUri === '/latest') {
     }
 
     $file->download();
-
 } elseif (str_starts_with($requestUri, '/save/')) {
     // deliver save with specific name
     $filename = urldecode(mb_substr($requestUri, 6));
@@ -36,16 +35,12 @@ if ($requestUri === '/latest') {
     }
 
     $file->download();
-
 } elseif ($requestUri === '/map') {
     // redirect to map
     $appUrl = $config->get('APP_URL');
     header("Location: https://satisfactory-calculator.com/en/interactive-map?url=$appUrl/latest");
 
     abort(302);
-
 } else {
-
     abort(404);
-
 }
