@@ -6,7 +6,7 @@ class SaveGame
 {
     protected static function saveGameDir(): string
     {
-        return (new Config)->get('SATISFACTORY_SAVEGAME_DIR');
+        return (new Config())->get('SATISFACTORY_SAVEGAME_DIR');
     }
 
     /**
