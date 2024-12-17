@@ -33,9 +33,9 @@ It's a little bit simpler with Docker.
 **docker run**
 ```bash
 docker run -d \
-    -p 8000:8000
-    -v /home/steam/.config/Epic/FactoryGame/Saved/SaveGames/server:/saves
-    -e APP_URL=https://example.com
+    -p 8000:8000 \
+    -v /home/steam/.config/Epic/FactoryGame/Saved/SaveGames/server:/saves \
+    -e APP_URL=https://example.com \
     tiifuchs/satisfactory-savegame-provider:latest
 ```
 
